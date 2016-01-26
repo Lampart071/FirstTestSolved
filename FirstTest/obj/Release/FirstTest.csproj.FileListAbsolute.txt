@@ -1,0 +1,12 @@
+C:\Users\EMILAMP\Desktop\WarsawQa\VS\FirstTest\FirstTest\bin\Release\chromedriver.exe
+C:\Users\EMILAMP\Desktop\WarsawQa\VS\FirstTest\FirstTest\bin\Release\FirstTest.dll
+C:\Users\EMILAMP\Desktop\WarsawQa\VS\FirstTest\FirstTest\bin\Release\FirstTest.pdb
+C:\Users\EMILAMP\Desktop\WarsawQa\VS\FirstTest\FirstTest\bin\Release\nunit.framework.dll
+C:\Users\EMILAMP\Desktop\WarsawQa\VS\FirstTest\FirstTest\bin\Release\WebDriver.dll
+C:\Users\EMILAMP\Desktop\WarsawQa\VS\FirstTest\FirstTest\bin\Release\WebDriver.Support.dll
+C:\Users\EMILAMP\Desktop\WarsawQa\VS\FirstTest\FirstTest\bin\Release\nunit.framework.xml
+C:\Users\EMILAMP\Desktop\WarsawQa\VS\FirstTest\FirstTest\bin\Release\WebDriver.xml
+C:\Users\EMILAMP\Desktop\WarsawQa\VS\FirstTest\FirstTest\bin\Release\WebDriver.Support.xml
+C:\Users\EMILAMP\Desktop\WarsawQa\VS\FirstTest\FirstTest\obj\Release\FirstTest.csprojResolveAssemblyReference.cache
+C:\Users\EMILAMP\Desktop\WarsawQa\VS\FirstTest\FirstTest\obj\Release\FirstTest.dll
+C:\Users\EMILAMP\Desktop\WarsawQa\VS\FirstTest\FirstTest\obj\Release\FirstTest.pdb
