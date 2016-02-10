@@ -9,3 +9,14 @@ C:\Users\EMILAMP\Desktop\WarsawQa\VS\FirstTest\FirstTest\bin\Debug\WebDriver.xml
 C:\Users\EMILAMP\Desktop\WarsawQa\VS\FirstTest\FirstTest\bin\Debug\WebDriver.Support.xml
 C:\Users\EMILAMP\Desktop\WarsawQa\VS\FirstTest\FirstTest\obj\Debug\FirstTest.dll
 C:\Users\EMILAMP\Desktop\WarsawQa\VS\FirstTest\FirstTest\obj\Debug\FirstTest.pdb
+C:\Users\EMILAMP\Source\Repos\FirstTestSolved\FirstTest\bin\Debug\chromedriver.exe
+C:\Users\EMILAMP\Source\Repos\FirstTestSolved\FirstTest\bin\Debug\FirstTest.dll
+C:\Users\EMILAMP\Source\Repos\FirstTestSolved\FirstTest\bin\Debug\FirstTest.pdb
+C:\Users\EMILAMP\Source\Repos\FirstTestSolved\FirstTest\bin\Debug\nunit.framework.dll
+C:\Users\EMILAMP\Source\Repos\FirstTestSolved\FirstTest\bin\Debug\WebDriver.dll
+C:\Users\EMILAMP\Source\Repos\FirstTestSolved\FirstTest\bin\Debug\WebDriver.Support.dll
+C:\Users\EMILAMP\Source\Repos\FirstTestSolved\FirstTest\bin\Debug\nunit.framework.xml
+C:\Users\EMILAMP\Source\Repos\FirstTestSolved\FirstTest\bin\Debug\WebDriver.xml
+C:\Users\EMILAMP\Source\Repos\FirstTestSolved\FirstTest\bin\Debug\WebDriver.Support.xml
+C:\Users\EMILAMP\Source\Repos\FirstTestSolved\FirstTest\obj\Debug\FirstTest.dll
+C:\Users\EMILAMP\Source\Repos\FirstTestSolved\FirstTest\obj\Debug\FirstTest.pdb

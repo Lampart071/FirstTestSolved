@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace FirstTestSolved
 {
-    [TestFixture]
+    [TestFixture, Category("Semi-Pro")]
     class SliderPageTests
     {
         IWebDriver driver;
@@ -17,7 +17,6 @@ namespace FirstTestSolved
         {
             ChromeOptions options = new ChromeOptions();
             options.AddArgument("--no-sandbox");
-            //options.AddArgument("--incognito");
             options.AddArgument("--disable-extensions");
             options.AddArgument("--start-maximized");
             driver = new ChromeDriver(options);
@@ -29,8 +28,8 @@ namespace FirstTestSolved
             driver.FindElements(By.CssSelector("#load_form > div > div.span_1_of_4 > input"))[1].Submit();
             Thread.Sleep(1000);
         }
-        
-        [Test]
+
+        [Test, Category("Medium level")]
         public void SliderPageOpens()
         {
             driver.Navigate().GoToUrl("http://way2automation.com/way2auto_jquery/slider.php");
@@ -38,25 +37,65 @@ namespace FirstTestSolved
             Assert.IsTrue(driver.FindElement(By.CssSelector(".active>a[target='_self']")).Text.Contains("RANGE SLIDER"));
         }
 
-        //TEST NOT FIXED YET
-        //[Test]
-        //public void SliderMoveThreeTimes()
-        //{
-        //    driver.Navigate().GoToUrl("http://way2automation.com/way2auto_jquery/slider.php");
-        //    driver.SwitchTo().Frame(driver.FindElement(By.CssSelector(".demo-frame")));
-        //    SetSliderPercentage("//*[@id='slider-range-max']", "//*[@id='slider-range-max']/span", 0);
-        //    Thread.Sleep(1000);
-        //    //Assert.IsTrue(driver.FindElement(By.CssSelector(".heading")).Text.Contains("Slider"));
-        //    SetSliderPercentage("//*[@id='slider-range-max']", "//*[@id='slider-range-max']/span", 3);
-        //    Thread.Sleep(1000);
-        //    //Assert.IsTrue(driver.FindElement(By.CssSelector(".heading")).Text.Contains("Slider"));
-        //    SetSliderPercentage("//*[@id='slider-range-max']", "//*[@id='slider-range-max']/span", 5);
-        //    Thread.Sleep(1000);
-        //    //Assert.IsTrue(driver.FindElement(By.CssSelector(".heading")).Text.Contains("Slider"));
-        //    SetSliderPercentage("//*[@id='slider-range-max']", "//*[@id='slider-range-max']/span", 8);
-        //    Thread.Sleep(1000);
-        //    //Assert.IsTrue(driver.FindElement(By.CssSelector(".heading")).Text.Contains("Slider"));
-        //}
+        [Test]
+        public void SliderMoveByJavaScript()
+        {
+            driver.Navigate().GoToUrl("http://way2automation.com/way2auto_jquery/slider.php");
+            driver.SwitchTo().Frame(driver.FindElement(By.CssSelector(".demo-frame")));
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            Assert.AreEqual(2, js.ExecuteScript("return $('#slider-range-max').slider('value');"));
+            SetSlider(5);
+            Assert.AreEqual(5, js.ExecuteScript("return $('#slider-range-max').slider('value');"));
+            SetSlider(8);
+            Assert.AreEqual(8, js.ExecuteScript("return $('#slider-range-max').slider('value');"));
+            SetSlider(1);
+            Assert.AreEqual(1, js.ExecuteScript("return $('#slider-range-max').slider('value');"));
+            SetSlider(10);
+            Assert.AreEqual(10, js.ExecuteScript("return $('#slider-range-max').slider('value');"));
+        }
+
+        [Test]
+        public void SliderMoveByArrows()
+        {
+            driver.Navigate().GoToUrl("http://way2automation.com/way2auto_jquery/slider.php");
+            driver.SwitchTo().Frame(driver.FindElement(By.CssSelector(".demo-frame")));
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            Assert.AreEqual(2, js.ExecuteScript("return $('#slider-range-max').slider('value');"));
+            SetSliderLeftWithArrows(".ui-slider-handle");
+            Assert.AreEqual(1, js.ExecuteScript("return $('#slider-range-max').slider('value');"));
+            SetSliderRightWithArrows(".ui-slider-handle");
+            SetSliderRightWithArrows(".ui-slider-handle");
+            SetSliderRightWithArrows(".ui-slider-handle");
+            SetSliderRightWithArrows(".ui-slider-handle");
+            Assert.AreEqual(5, js.ExecuteScript("return $('#slider-range-max').slider('value');"));
+            SetSliderRightWithArrows(".ui-slider-handle");
+            SetSliderRightWithArrows(".ui-slider-handle");
+            SetSliderRightWithArrows(".ui-slider-handle");
+            Assert.AreEqual(8, js.ExecuteScript("return $('#slider-range-max').slider('value');"));
+            SetSliderRightWithArrows(".ui-slider-handle");
+            SetSliderRightWithArrows(".ui-slider-handle");
+            Assert.AreEqual(10, js.ExecuteScript("return $('#slider-range-max').slider('value');"));
+        }
+
+        public void SetSliderLeftWithArrows(string sliderHandleCss)
+        {
+            var sliderHandle = driver.FindElement(By.CssSelector(sliderHandleCss));
+            sliderHandle.Click();
+            sliderHandle.SendKeys(Keys.ArrowLeft);
+        }
+
+        public void SetSliderRightWithArrows(string sliderHandleCss)
+        {
+            var sliderHandle = driver.FindElement(By.CssSelector(sliderHandleCss));
+            sliderHandle.Click();
+            sliderHandle.SendKeys(Keys.ArrowRight);
+        }
+
+        public void SetSlider(int value)
+        {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            js.ExecuteScript("$('#slider-range-max').slider('value', " + value + "); $('#amount').val($('#slider-range-max').slider('value'));");
+        }
 
         [TearDown]
         public void TearDown()
@@ -64,16 +103,5 @@ namespace FirstTestSolved
             driver.Close();
         }
 
-        public void SetSliderPercentage(string sliderTrackXpath, string sliderHandleXpath, int percentage)
-        {
-            var sliderHandle = driver.FindElement(By.XPath(sliderHandleXpath));
-            var sliderTrack = driver.FindElement(By.XPath(sliderTrackXpath));
-            var width = int.Parse(sliderTrack.GetCssValue("width").Replace("px", ""));
-            var dx = (int)((percentage / 100.0) * width);
-            new Actions(driver)
-                        .DragAndDropToOffset(sliderHandle, dx, 0)
-                        .Build()
-                        .Perform();
-        }
     }
 }

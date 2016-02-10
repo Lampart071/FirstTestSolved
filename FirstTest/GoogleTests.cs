@@ -5,7 +5,7 @@ using System.Threading;
 
 namespace FirstTestSolved
 {
-    [TestFixture]
+    [TestFixture, Category("Low level")]
     public class GoogleTests
     {
         [Test]
@@ -32,58 +32,55 @@ namespace FirstTestSolved
             driver.Close();
         }
 
-        [Ignore]
         [Test]
         public void TestThatGoogleFindsVegetableNotMeat()
         {
-            //ChromeOptions options = new ChromeOptions();
-            //options.AddArgument("--no-sandbox");
-            //options.AddArgument("--disable-extensions");
-            //options.AddArgument("--start-maximized");
-            //IWebDriver driver = new ChromeDriver(options);
-            //driver.Navigate().GoToUrl("http://google.com");
-            //driver.FindElement(By.Id("lst-ib")).SendKeys("Vegetable");
-            //driver.FindElement(By.Name("btnK")).Submit();
-            //Thread.Sleep(1000);
-            //Assert.IsTrue(driver.FindElement(By.CssSelector("#rso > div > div:nth-child(1) > div > h3 > a")).Text.Contains("Vegetable"));
-            //Assert.IsFalse(driver.FindElement(By.CssSelector("#rso > div > div:nth-child(1) > div > h3 > a")).Text.Contains("Meat"));
-            //driver.Close();
+            ChromeOptions options = new ChromeOptions();
+            options.AddArgument("--no-sandbox");
+            options.AddArgument("--disable-extensions");
+            options.AddArgument("--start-maximized");
+            IWebDriver driver = new ChromeDriver(options);
+            driver.Navigate().GoToUrl("http://google.com");
+            driver.FindElement(By.Id("lst-ib")).SendKeys("Vegetable");
+            driver.FindElement(By.Name("btnK")).Submit();
+            Thread.Sleep(1000);
+            Assert.IsTrue(driver.FindElement(By.CssSelector("#rso > div > div:nth-child(1) > div > h3 > a")).Text.Contains("Vegetable"));
+            Assert.IsFalse(driver.FindElement(By.CssSelector("#rso > div > div:nth-child(1) > div > h3 > a")).Text.Contains("Meat"));
+            driver.Close();
         }
 
-        [Ignore]
         [Test]
         public void TestThatGoogleFindsMushroomNotFlower()
         {
-            //ChromeOptions options = new ChromeOptions();
-            //options.AddArgument("--no-sandbox");
-            //options.AddArgument("--disable-extensions");
-            //options.AddArgument("--start-maximized");
-            //IWebDriver driver = new ChromeDriver(options);
-            //driver.Navigate().GoToUrl("http://google.com");
-            //driver.FindElement(By.Id("lst-ib")).SendKeys("Mushroom");
-            //driver.FindElement(By.Name("btnK")).Submit();
-            //Thread.Sleep(1000);
-            //Assert.IsTrue(driver.FindElement(By.CssSelector("#rso > div > div:nth-child(1) > div > h3 > a")).Text.Contains("mushroom"));
-            //Assert.IsFalse(driver.FindElement(By.CssSelector("#rso > div > div:nth-child(1) > div > h3 > a")).Text.Contains("Flower"));
-            //driver.Close();
+            ChromeOptions options = new ChromeOptions();
+            options.AddArgument("--no-sandbox");
+            options.AddArgument("--disable-extensions");
+            options.AddArgument("--start-maximized");
+            IWebDriver driver = new ChromeDriver(options);
+            driver.Navigate().GoToUrl("http://google.com");
+            driver.FindElement(By.Id("lst-ib")).SendKeys("Mushroom");
+            driver.FindElement(By.Name("btnK")).Submit();
+            Thread.Sleep(1000);
+            Assert.IsTrue(driver.FindElement(By.CssSelector("#rso > div > div:nth-child(1) > div > h3 > a")).Text.Contains("mushroom"));
+            Assert.IsFalse(driver.FindElement(By.CssSelector("#rso > div > div:nth-child(1) > div > h3 > a")).Text.Contains("Flower"));
+            driver.Close();
         }
 
-        [Ignore]
         [Test]
         public void TestThatGoogleFindsJavaNotCsharp()
         {
-            //ChromeOptions options = new ChromeOptions();
-            //options.AddArgument("--no-sandbox");
-            //options.AddArgument("--disable-extensions");
-            //options.AddArgument("--start-maximized");
-            //IWebDriver driver = new ChromeDriver(options);
-            //driver.Navigate().GoToUrl("http://google.com");
-            //driver.FindElement(By.Id("lst-ib")).SendKeys("Java");
-            //driver.FindElement(By.Name("btnK")).Submit();
-            //Thread.Sleep(1000);
-            //Assert.IsTrue(driver.FindElement(By.CssSelector("#rso > div > div:nth-child(1) > div > h3 > a")).Text.Contains("Java"));
-            //Assert.IsFalse(driver.FindElement(By.CssSelector("#rso > div > div:nth-child(1) > div > h3 > a")).Text.Contains("C#"));
-            //driver.Close();
+            ChromeOptions options = new ChromeOptions();
+            options.AddArgument("--no-sandbox");
+            options.AddArgument("--disable-extensions");
+            options.AddArgument("--start-maximized");
+            IWebDriver driver = new ChromeDriver(options);
+            driver.Navigate().GoToUrl("http://google.com");
+            driver.FindElement(By.Id("lst-ib")).SendKeys("Java");
+            driver.FindElement(By.Name("btnK")).Submit();
+            Thread.Sleep(1000);
+            Assert.IsTrue(driver.FindElement(By.CssSelector("#rso > div > div:nth-child(1) > div > h3 > a")).Text.Contains("Java"));
+            Assert.IsFalse(driver.FindElement(By.CssSelector("#rso > div > div:nth-child(1) > div > h3 > a")).Text.Contains("C#"));
+            driver.Close();
         }
     }
 }

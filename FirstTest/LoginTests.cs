@@ -5,7 +5,7 @@ using System.Threading;
 
 namespace FirstTestSolved
 {
-    [TestFixture]
+    [TestFixture, Category("Medium level")]
     class LoginTests
     {
         [Test]
@@ -13,8 +13,7 @@ namespace FirstTestSolved
         {
             ChromeOptions options = new ChromeOptions();
             options.AddArgument("--no-sandbox");
-            //options.AddArgument("--incognito");
-            //options.AddArgument("--disable-extensions");
+            options.AddArgument("--disable-extensions");
             options.AddArgument("--start-maximized");
             IWebDriver driver = new ChromeDriver(options);
             driver.Navigate().GoToUrl("http://www.qa.way2automation.com/");
@@ -34,8 +33,7 @@ namespace FirstTestSolved
         {
             ChromeOptions options = new ChromeOptions();
             options.AddArgument("--no-sandbox");
-            //options.AddArgument("--incognito");
-            //options.AddArgument("--disable-extensions");
+            options.AddArgument("--disable-extensions");
             options.AddArgument("--start-maximized");
             IWebDriver driver = new ChromeDriver(options);
             driver.Navigate().GoToUrl("http://www.qa.way2automation.com/");
